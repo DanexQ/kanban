@@ -24,3 +24,6 @@ yarn-error.log*
 
 #ignore all .txt files
 *.txt
+
+#ignore design image
+web_design.png

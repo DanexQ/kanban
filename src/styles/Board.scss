@@ -1,0 +1,60 @@
+@import "./variables.scss";
+
+.board {
+  position: relative;
+  background-color: $secondary-color-dark;
+  height: 100%;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 20%;
+  gap: 5rem;
+  padding: 3rem;
+  overflow-x: auto;
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  &__features {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.5rem 0;
+  }
+
+  &__title {
+    font-size: 1.2rem;
+  }
+
+  &__color {
+    width: 1.5rem;
+    height: 1.5rem;
+    background: white;
+    border-radius: 50%; // THIS PROPERTY WILL CHANGE
+  }
+
+  &__tasks {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  &__task {
+    border-radius: $border-radius-size;
+    width: 100%;
+    background-color: $primary-color-dark;
+    padding: 2rem;
+
+    &-title {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    &-subtasks {
+      font-size: 1.5rem;
+    }
+  }
+}

@@ -8,7 +8,7 @@ import "../styles/Sidebar.scss";
 
 const Sidebar = () => {
   return (
-    <div className="sidebar dark">
+    <div className="sidebar dark ">
       <div className="logo">
         <div className="logo__rectangle"></div>
         <h1 className="logo__title">kanban</h1>
@@ -23,7 +23,9 @@ const Sidebar = () => {
           </div>
           <div className="sidebar__board">
             <DashboardIcon className="sidebar__icon" />{" "}
-            <p className="sidebar__board-title">Example 2 sdadssssssssssss*</p>
+            <p className="sidebar__board-title">
+              Example 2 dsadasddasdassdadssaasdas *
+            </p>
           </div>
         </div>
         <div className="sidebar__create">

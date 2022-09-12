@@ -1,10 +1,11 @@
 import Sidebar from "./components/Sidebar";
+import Main from "./components/Main";
 
 const App = () => {
   return (
     <div className="app dark">
       <Sidebar />
-      <div></div>
+      <Main />
     </div>
   );
 };

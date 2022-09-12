@@ -17,11 +17,45 @@ body {
   font-family: Nunito; // CHANGE
 }
 
+::-webkit-scrollbar {
+  height: 25px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  margin: 2rem;
+  background-color: transparent;
+  border-radius: $border-radius-size;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background-color: $primary-color-dark;
+  border: 7px solid $secondary-color-dark;
+  border-radius: $border-radius-size;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: $primary-color-dark;
+}
+
+button {
+  border: none;
+  background-color: transparent;
+  color: inherit;
+  font-size: inherit;
+  font-family: inherit;
+}
+
 .app {
   width: 100vw;
   height: 100vh;
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: minmax(min-content, 18%) minmax(
+      min-content,
+      max-content
+    );
 
   &.dark {
     color: $font-color-dark;
