@@ -63,7 +63,7 @@
       height: 100%;
       background-color: $secondary-color-dark;
       width: 0px;
-      left: -60%;
+      left: -20%;
       border-radius: $border-radius-size;
       z-index: 0;
       transition: width 0.5s;
@@ -72,7 +72,7 @@
 
     &:hover {
       &::before {
-        width: 500px;
+        width: 120%;
       }
     }
 
@@ -86,7 +86,7 @@
 
       &::before {
         background-color: $primary-color;
-        width: 500px;
+        width: 120%;
       }
     }
   }

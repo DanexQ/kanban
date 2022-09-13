@@ -52,10 +52,7 @@ button {
   width: 100vw;
   height: 100vh;
   display: grid;
-  grid-template-columns: minmax(min-content, 18%) minmax(
-      min-content,
-      max-content
-    );
+  grid-template-columns: minmax(min-content, 17%) minmax(30%, 83%);
 
   &.dark {
     color: $font-color-dark;
@@ -64,4 +61,12 @@ button {
       background-color: $primary-color-dark;
     }
   }
+}
+
+.home {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 5rem;
+  background: $secondary-color-dark;
 }
