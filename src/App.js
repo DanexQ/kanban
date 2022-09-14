@@ -1,4 +1,4 @@
-import Main from "./components/Main";
+import Main from "./components/Main/Main";
 import Layout from "./components/Layout";
 import { Route, Routes } from "react-router-dom";
 import Home from "./components/Home";

@@ -1,14 +1,20 @@
 import React, { useContext, useState } from "react";
-import { DataContext } from "../context/DataContext";
-import "../styles/Forms.scss";
+import { DataContext } from "../../context/DataContext";
+import "../../assets/styles/Forms.scss";
 
-const CreateBoard = () => {
-  const { handleSubmit } = useContext(DataContext);
+const CreateBoardForm = () => {
+  const { newBoard } = useContext(DataContext);
   const [newBoardName, setNewBoardName] = useState("");
 
   return (
     <div className="form">
-      <form onSubmit={(e) => handleSubmit(e, newBoardName)}>
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+          setNewBoardName("");
+          newBoard(newBoardName);
+        }}
+      >
         <input
           type="text"
           name="boardName"
@@ -22,4 +28,4 @@ const CreateBoard = () => {
   );
 };
 
-export default CreateBoard;
+export default CreateBoardForm;
