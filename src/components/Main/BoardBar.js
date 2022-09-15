@@ -4,7 +4,6 @@ import "../../assets/styles/BoardBar.scss";
 
 const BoardBar = () => {
   const { currentBoard } = useContext(DataContext);
-  console.log(currentBoard);
   return (
     <div className="board-bar">
       <h2 className="board-bar__title">{currentBoard?.name}</h2>

@@ -5,7 +5,7 @@ const HideSidebar = () => {
   return (
     <div className="sidebar__container">
       <VisibilityOffIcon className="sidebar__icon" />{" "}
-      <p className="sidebar__hide">Hide Sidebar *</p>
+      <p className="sidebar__hide">Hide Sidebar</p>
     </div>
   );
 };

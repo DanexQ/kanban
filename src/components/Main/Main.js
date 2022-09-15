@@ -1,18 +1,23 @@
 import BoardBar from "./BoardBar";
-import React, { useContext, useEffect } from "react";
 import "../../assets/styles/Main.scss";
 import Board from "./Board";
+import { useContext, useEffect } from "react";
 import { DataContext } from "../../context/DataContext";
 import { useParams } from "react-router-dom";
+import { BOARDS_TYPE } from "../../data/constans";
 
 const Main = () => {
-  const { state, setCurrentBoard } = useContext(DataContext);
+  const { boards, dispatchBoards } = useContext(DataContext);
   const { boardId } = useParams();
 
   useEffect(() => {
-    console.log("useeffect");
-    setCurrentBoard(state.filter((board) => board.id === boardId)[0]);
-  }, [state, boardId]);
+    const currentBoard = boards.filter((board) => board.id === boardId)[0];
+    return dispatchBoards({
+      type: BOARDS_TYPE.NEW_CURRENT,
+      payload: currentBoard,
+    }); // eslint-disable-next-line
+  }, [boardId]);
+
   return (
     <main className="main">
       <BoardBar />

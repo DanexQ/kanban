@@ -1,5 +1,4 @@
-import React, { useContext } from "react";
-import { DataContext } from "../../context/DataContext";
+import React from "react";
 import Task from "./Task";
 
 const Table = ({ table }) => {
@@ -11,7 +10,24 @@ const Table = ({ table }) => {
           {table.name} ({table.tasks.length})
         </p>
       </div>
-      <Task />
+      <div className="board__tasks">
+        <Task />
+        <Task />
+        <Task />
+        <Task />
+        <Task />
+        <Task />
+        <Task />
+        <Task />
+        <Task />
+        <Task />
+        <Task />
+        <Task />
+        <Task />
+        <Task />
+        <Task />
+        <Task />
+      </div>
     </div>
   );
 };

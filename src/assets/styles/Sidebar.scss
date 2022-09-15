@@ -28,7 +28,7 @@
     justify-content: center;
     align-items: flex-start;
     margin-bottom: auto;
-    gap: 2rem;
+    gap: 1rem;
   }
 
   &__all {
@@ -53,7 +53,7 @@
     align-items: center;
     height: 100%;
     width: 100%;
-    gap: 1rem;
+    gap: 2rem;
     padding: 1rem 0;
     cursor: pointer;
 
@@ -73,6 +73,18 @@
     &:hover {
       &::before {
         width: 120%;
+      }
+
+      &--form {
+        &::before {
+          height: 0%;
+        }
+
+        &:hover {
+          &::before {
+            width: 0%;
+          }
+        }
       }
     }
 
@@ -97,10 +109,12 @@
   }
 
   &__create {
+    width: 100%;
     color: $primary-color;
     display: flex;
     align-items: center;
     gap: 1rem;
+    padding: 1rem 0;
     cursor: pointer;
   }
 

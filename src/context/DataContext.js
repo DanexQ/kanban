@@ -1,39 +1,27 @@
-import { createContext, useEffect, useReducer, useState } from "react";
-import { nanoid } from "nanoid";
+import { createContext, useReducer } from "react";
 import { BoardsReducer, initialBoards } from "../reducers/BoardsReducer";
-import { useNavigate } from "react-router-dom";
+import { initialTables, TablesReducer } from "../reducers/TablesReducer";
 
 export const DataContext = createContext();
 
 export const DataProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(BoardsReducer, initialBoards);
-  const [boards, setBoards] = useState(state);
-  const [currentBoard, setCurrentBoard] = useState();
-  const navigate = useNavigate();
-
-  const newBoard = (boardName) => {
-    const board = { id: nanoid(), name: boardName, tables: [] };
-    setCurrentBoard(board);
-    navigate(`/${board.id}`);
-    return dispatch({
-      type: "ADD_BOARD",
-      payload: board,
-    });
-  };
-
-  const addTable = (table, boardId) =>
-    dispatch({ type: "ADD_TABLE", payload: { table, boardId } });
+  const [stateBoards, dispatchBoards] = useReducer(
+    BoardsReducer,
+    initialBoards
+  );
+  const [stateTables, dispatchTables] = useReducer(
+    TablesReducer,
+    initialTables
+  );
 
   return (
     <DataContext.Provider
       value={{
-        state,
-        newBoard,
-        boards,
-        setBoards,
-        setCurrentBoard,
-        currentBoard,
-        addTable,
+        currentBoard: stateBoards.currentBoard,
+        boards: stateBoards.boards,
+        dispatchBoards,
+        tables: stateTables,
+        dispatchTables,
       }}
     >
       {children}

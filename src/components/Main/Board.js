@@ -1,54 +1,30 @@
-import { nanoid } from "nanoid";
 import React, { useContext, useState } from "react";
-import { useParams } from "react-router-dom";
 import "../../assets/styles/Board.scss";
 import { DataContext } from "../../context/DataContext";
+import CreateTableForm from "./CreateTableForm";
 import Table from "./Table";
 
 const Board = () => {
-  const { boardId } = useParams();
+  const { currentBoard } = useContext(DataContext);
+  const { tables } = useContext(DataContext);
+  const [showForm, setShowForm] = useState(false);
 
-  const { addTable, currentBoard } = useContext(DataContext);
-  const [newTable, setNewTable] = useState({
-    name: "",
-    tasks: [],
-  });
-
-  const tables = currentBoard?.tables.length
-    ? currentBoard?.tables.map((table) => (
-        <Table key={table.id} table={table} />
-      ))
-    : "";
-
-  const handleChange = (e) => {
-    const { value } = e.target;
-    setNewTable((prevTable) => ({
-      ...prevTable,
-      name: value,
-    }));
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setNewTable({
-      name: "",
-      tasks: [],
-    });
-    addTable(newTable, boardId);
-  };
+  const tablesElements = tables
+    .filter((table) => table.boardId === currentBoard.id)
+    .map((table) => <Table key={table.id} table={table} />);
 
   return (
     <div className="board">
-      {tables}
-      <form onSubmit={(e) => handleSubmit(e)}>
-        <input
-          type="text"
-          placeholder="Table name"
-          value={newTable.name}
-          onChange={(e) => handleChange(e)}
-        />
-      </form>
-      <button className="board__add-table">+ Add New Table</button>
+      {tablesElements}
+      {showForm && <CreateTableForm setShowForm={setShowForm} />}
+      {!showForm && (
+        <button
+          className="board__add-table"
+          onClick={() => setShowForm((prevValue) => !prevValue)}
+        >
+          + Add New Table
+        </button>
+      )}
     </div>
   );
 };

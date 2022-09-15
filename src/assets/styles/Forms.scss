@@ -1,7 +1,51 @@
 @import "./variables.scss";
 
 .form {
-  width: 80%;
+  width: 100%;
+  font-size: 2rem;
+
+  &__button {
+    padding: 1rem 0;
+    width: 50%;
+    cursor: pointer;
+    border: 1px solid $secondary-color-dark;
+    transition: all 0.2s;
+    margin-top: 1rem;
+    color: $secondary-color-dark;
+    font-weight: 700;
+
+    &:active {
+      transform: scale(0.9);
+    }
+
+    &--submit {
+      background-color: rgba($primary-color, 0.4);
+      border-top-right-radius: $border-radius-size;
+      border-bottom-right-radius: $border-radius-size;
+      &:hover {
+        background-color: rgba($primary-color, 0.7);
+      }
+    }
+
+    &--cancel {
+      background-color: rgba(red, 0.4);
+      border-top-left-radius: $border-radius-size;
+      border-bottom-left-radius: $border-radius-size;
+
+      &:hover {
+        background-color: rgba(red, 0.7);
+      }
+    }
+  }
+
+  &__container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    gap: 1rem;
+  }
 
   &__input {
     width: 100%;
@@ -15,6 +59,10 @@
 
     &:focus {
       outline: none;
+    }
+
+    &--table {
+      background-color: $primary-color-dark;
     }
   }
 
