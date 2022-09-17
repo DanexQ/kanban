@@ -11,7 +11,9 @@ const Sidebar = () => {
     <div className="sidebar dark ">
       <div className="logo">
         <div className="logo__rectangle"></div>
-        <h1 className="logo__title">kanban</h1>
+        <h1 className="logo__title">
+          <a href="/">kanban</a>
+        </h1>
       </div>
       <SidebarMenu />
       <ThemeSwitch />

@@ -4,18 +4,16 @@ import { Route, Routes } from "react-router-dom";
 import Home from "./components/Home";
 import { useContext, useEffect } from "react";
 import { DataContext } from "./context/DataContext";
-import { BOARDS_TYPE } from "./data/constans";
 
 const App = () => {
   const { stateBoards, dispatchBoards } = useContext(DataContext);
 
   useEffect(() => {
-    stateBoards && localStorage.setItem("boards", JSON.stringify(stateBoards));
-  }, [stateBoards]);
-
-  useEffect(() => {
-    dispatchBoards({ type: BOARDS_TYPE.GET_BOARDS });
-  }, [dispatchBoards]);
+    const data = JSON.stringify(stateBoards);
+    console.log(JSON.parse(data));
+    localStorage.setItem("boards", data);
+    // dispatchBoards({ type: BOARDS_TYPE.SAVE_BOARDS });
+  }, [stateBoards.boards, stateBoards.currentBoard, dispatchBoards]);
 
   return (
     <div className="app dark">

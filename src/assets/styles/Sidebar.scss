@@ -13,7 +13,6 @@
   border-right: $border;
   box-shadow: 0.5rem 0 2rem $secondary-color-dark;
   z-index: 999;
-  flex: 0 0 15%;
 
   &__container {
     display: flex;
@@ -29,6 +28,7 @@
     align-items: flex-start;
     margin-bottom: auto;
     gap: 1rem;
+    width: 100%;
   }
 
   &__all {
@@ -56,6 +56,8 @@
     gap: 2rem;
     padding: 1rem 0;
     cursor: pointer;
+    hyphens: auto;
+    overflow-wrap: normal;
 
     &::before {
       position: absolute;
@@ -91,6 +93,7 @@
     &-title {
       hyphens: auto;
       z-index: 2;
+      margin-right: auto;
     }
 
     &.active {

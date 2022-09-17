@@ -52,7 +52,7 @@ button {
   width: 100vw;
   max-height: 100vh;
   display: grid;
-  grid-template-columns: minmax(min-content, 17%) minmax(30%, 83%);
+  grid-template-columns: minmax(min-content, 18%) minmax(30%, 83%);
   grid-template-rows: 100vh;
   overflow: hidden;
 
@@ -71,4 +71,9 @@ button {
   align-items: center;
   font-size: 5rem;
   background: $secondary-color-dark;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
 }

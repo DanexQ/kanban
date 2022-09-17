@@ -1,6 +1,16 @@
 import { BOARDS_TYPE } from "../data/constans";
 
-export const initialBoards = { boards: [], currentBoard: {} };
+const getLocal = () => {
+  const data = JSON.parse(localStorage.getItem("boards"));
+  console.log("SET", data);
+
+  return data;
+};
+
+export const initialBoards = getLocal() ?? {
+  boards: [],
+  currentBoard: {},
+};
 
 export const BoardsReducer = (state, action) => {
   switch (action.type) {
@@ -9,20 +19,12 @@ export const BoardsReducer = (state, action) => {
         boards: [...state.boards, action.payload],
         currentBoard: action.payload,
       };
+      localStorage.setItem("boards", JSON.stringify(newState));
       return newState;
     case BOARDS_TYPE.NEW_CURRENT:
       return {
         ...state,
         currentBoard: action.payload,
-      };
-    case BOARDS_TYPE.SAVE_BOARDS:
-      localStorage.setItem("boards", JSON.stringify(state));
-      break;
-    case BOARDS_TYPE.GET_BOARDS:
-      const boards = JSON.parse(localStorage.getItem("boards"));
-      return {
-        boards: boards.boards,
-        currentBoard: {},
       };
     default:
       console.log("DEFALT");

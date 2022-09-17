@@ -1,4 +1,5 @@
-import { createContext, useReducer } from "react";
+import { createContext, useEffect, useReducer } from "react";
+import { BOARDS_TYPE } from "../data/constans";
 import { BoardsReducer, initialBoards } from "../reducers/BoardsReducer";
 import { initialTables, TablesReducer } from "../reducers/TablesReducer";
 
@@ -9,6 +10,7 @@ export const DataProvider = ({ children }) => {
     BoardsReducer,
     initialBoards
   );
+
   const [stateTables, dispatchTables] = useReducer(
     TablesReducer,
     initialTables
@@ -17,6 +19,7 @@ export const DataProvider = ({ children }) => {
   return (
     <DataContext.Provider
       value={{
+        stateBoards,
         currentBoard: stateBoards.currentBoard,
         boards: stateBoards.boards,
         dispatchBoards,

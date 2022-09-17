@@ -12,7 +12,9 @@ const BoardItem = ({ board }) => {
       onClick={() => navigate(`/${board.id}`)}
     >
       <DashboardIcon className="sidebar__icon" />{" "}
-      <p className="sidebar__board-title">{board.name}</p>
+      <p className="sidebar__board-title" lang="en-GB-x-hixie">
+        {board.name}
+      </p>
     </div>
   );
 };
