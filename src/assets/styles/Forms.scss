@@ -8,10 +8,10 @@
     padding: 1rem 0;
     width: 50%;
     cursor: pointer;
-    border: 1px solid $secondary-color-dark;
+    border: 1px solid var(--theme-secondary-color);
     transition: all 0.2s;
     margin-top: 1rem;
-    color: $secondary-color-dark;
+    color: var(--theme-font-color);
     font-weight: 700;
 
     &:active {
@@ -51,8 +51,8 @@
     width: 100%;
     padding: 1rem;
     font-size: 2rem;
-    background-color: $secondary-color-dark;
-    color: $font-color-dark;
+    background-color: var(--theme-secondary-color);
+    color: var(--theme-font-color);
     border-radius: $border-radius-size;
     border: none;
     font-family: inherit;
@@ -62,7 +62,7 @@
     }
 
     &--table {
-      background-color: $primary-color-dark;
+      background-color: var(--theme-primary-color);
     }
   }
 

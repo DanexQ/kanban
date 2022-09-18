@@ -1,15 +1,19 @@
 // DARK MODE
-$primary-color-dark: #212d40;
-$secondary-color-dark: #11151c;
-$font-color-dark: #e5e5e5;
+// $primary-color-dark: #212d40;
+// $secondary-color-dark: #11151c;
+// $font-color-dark: #e5e5e5;
 
-// LIGHT MODE
-$primary-color-light: #212d40;
-$secondary-color-light: #11151c;
-$font-color-light: #e5e5e5;
+// // LIGHT MODE
+// $primary-color-light: #f0f0f0;
+// $secondary-color-light: #f6f6f6;
+// $font-color-light: #2e2e2e;
+
+@mixin Transition {
+  transition: all 0.2s;
+}
 
 // LOGO COLORS
-$primary-color: #4cc9f0;
+$primary-color: #43b0d1;
 
 $border-radius-size: 2rem;
 $border: 1px solid #4a4a4a;

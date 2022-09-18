@@ -13,9 +13,10 @@ export const initialBoards = getLocal() ?? {
 };
 
 export const BoardsReducer = (state, action) => {
+  let newState;
   switch (action.type) {
     case BOARDS_TYPE.CREATE_BOARD:
-      const newState = {
+      newState = {
         boards: [...state.boards, action.payload],
         currentBoard: action.payload,
       };
@@ -26,6 +27,21 @@ export const BoardsReducer = (state, action) => {
         ...state,
         currentBoard: action.payload,
       };
+    case BOARDS_TYPE.CHANGE_NAME:
+      const [boardEdited] = state.boards.filter(
+        (board) => board.id === action.payload.boardId
+      );
+      boardEdited.name = action.payload.newName;
+      newState = state.boards.filter(
+        (board) => board.id !== action.payload.boardId
+      );
+      return { ...state, boards: [...newState, boardEdited] };
+    case BOARDS_TYPE.DELETE_BOARD:
+      console.log("delete");
+      newState = state.boards.filter(
+        (board) => board.id !== action.payload.boardId
+      );
+      return { boards: [...newState], currentBoard: {} };
     default:
       console.log("DEFALT");
   }

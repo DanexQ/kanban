@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { DataContext } from "../../context/DataContext";
 import "../../assets/styles/Forms.scss";
 import { nanoid } from "nanoid";
@@ -9,6 +9,7 @@ const CreateBoardForm = ({ setShowForm }) => {
   const { dispatchBoards } = useContext(DataContext);
   const navigate = useNavigate();
   const [newBoardName, setNewBoardName] = useState("New Board");
+  const inputEl = useRef(null);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -25,10 +26,15 @@ const CreateBoardForm = ({ setShowForm }) => {
     setShowForm(false);
   };
 
+  useEffect(() => {
+    inputEl.current.focus();
+  }, []);
+
   return (
     <div className="form">
       <form onSubmit={(e) => handleSubmit(e)}>
         <input
+          ref={inputEl}
           type="text"
           name="boardName"
           placeholder="New Board"
@@ -36,6 +42,7 @@ const CreateBoardForm = ({ setShowForm }) => {
           value={newBoardName}
           onChange={(e) => setNewBoardName(e.target.value)}
           autoComplete="off"
+          onBlur={() => setShowForm(false)}
         />
       </form>
     </div>

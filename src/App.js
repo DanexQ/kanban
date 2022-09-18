@@ -10,9 +10,8 @@ const App = () => {
 
   useEffect(() => {
     const data = JSON.stringify(stateBoards);
-    console.log(JSON.parse(data));
     localStorage.setItem("boards", data);
-    // dispatchBoards({ type: BOARDS_TYPE.SAVE_BOARDS });
+    // eslint-disable-next-line
   }, [stateBoards.boards, stateBoards.currentBoard, dispatchBoards]);
 
   return (

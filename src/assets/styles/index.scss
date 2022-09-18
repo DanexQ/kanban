@@ -30,14 +30,14 @@ body {
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background-color: $primary-color-dark;
-  border: 7px solid $secondary-color-dark;
+  background-color: var(--theme-primary-color);
+  border: 7px solid var(--theme-secondary-color);
   border-radius: $border-radius-size;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: $primary-color-dark;
+  background: var(--theme-primary-color);
 }
 
 button {
@@ -55,14 +55,8 @@ button {
   grid-template-columns: minmax(min-content, 18%) minmax(30%, 83%);
   grid-template-rows: 100vh;
   overflow: hidden;
-
-  &.dark {
-    color: $font-color-dark;
-
-    > .sidebar {
-      background-color: $primary-color-dark;
-    }
-  }
+  color: var(--theme-font-color);
+  background-color: var(--theme-primary-color);
 }
 
 .home {
@@ -70,7 +64,7 @@ button {
   justify-content: center;
   align-items: center;
   font-size: 5rem;
-  background: $secondary-color-dark;
+  background: var(--theme-secondary-color);
 }
 
 a {

@@ -8,7 +8,7 @@ const BoardItem = ({ board }) => {
 
   return (
     <div
-      className={`sidebar__board ${boardId === board.id && "active"}`}
+      className={`sidebar__board ${boardId === board.id ? "active" : ""}`}
       onClick={() => navigate(`/${board.id}`)}
     >
       <DashboardIcon className="sidebar__icon" />{" "}

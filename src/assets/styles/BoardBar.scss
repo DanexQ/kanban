@@ -8,9 +8,9 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  gap: 1rem;
-  background-color: $primary-color-dark;
+  background-color: var(--theme-primary-color);
   padding: 2rem 3rem;
+  gap: 2rem;
   border-bottom: $border;
   z-index: 1000;
 
@@ -24,21 +24,25 @@
     font-size: 1.6rem;
     border-radius: $border-radius-size;
     background-color: $primary-color;
-    color: $secondary-color-dark;
     font-weight: 700;
     cursor: pointer;
   }
 
   &__menu {
-    padding: 2rem;
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding: 2rem;
 
-    & div {
+    > button {
       position: relative;
       width: 7px;
       height: 7px;
-      background-color: $font-color-dark;
+      background-color: var(--theme-font-color);
       border-radius: 50%;
+      cursor: pointer;
 
       &::before {
         content: "";
@@ -62,5 +66,31 @@
         top: 1rem;
       }
     }
+  }
+
+  &__settings {
+    position: absolute;
+    top: 5.5rem;
+    right: 6.5rem;
+    width: max-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  &__button {
+    padding: 1rem 2rem;
+    background-color: $primary-color;
+    border-radius: $border-radius-size;
+    font-size: 1.6rem;
+    color: var(--theme-secondary-color);
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--theme-primary-color);
   }
 }
