@@ -6,13 +6,13 @@ import { useContext, useEffect } from "react";
 import { DataContext } from "./context/DataContext";
 
 const App = () => {
-  const { stateBoards, dispatchBoards } = useContext(DataContext);
+  const { stateBoards, tables } = useContext(DataContext);
 
   useEffect(() => {
-    const data = JSON.stringify(stateBoards);
-    localStorage.setItem("boards", data);
+    localStorage.setItem("boards", JSON.stringify(stateBoards));
+    localStorage.setItem("tables", JSON.stringify(tables));
     // eslint-disable-next-line
-  }, [stateBoards.boards, stateBoards.currentBoard, dispatchBoards]);
+  }, [stateBoards.boards, stateBoards.currentBoard, tables]);
 
   return (
     <div className="app dark">

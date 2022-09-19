@@ -18,7 +18,7 @@ body {
 }
 
 ::-webkit-scrollbar {
-  height: 25px;
+  width: 15px;
 }
 
 /* Track */
@@ -31,7 +31,7 @@ body {
 /* Handle */
 ::-webkit-scrollbar-thumb {
   background-color: var(--theme-primary-color);
-  border: 7px solid var(--theme-secondary-color);
+  border: 5px solid var(--theme-secondary-color);
   border-radius: $border-radius-size;
 }
 
@@ -52,7 +52,7 @@ button {
   width: 100vw;
   max-height: 100vh;
   display: grid;
-  grid-template-columns: minmax(min-content, 18%) minmax(30%, 83%);
+  grid-template-columns: minmax(min-content, 20%) minmax(30%, 83%);
   grid-template-rows: 100vh;
   overflow: hidden;
   color: var(--theme-font-color);

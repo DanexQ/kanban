@@ -43,6 +43,7 @@ const CreateBoardForm = ({ setShowForm }) => {
           onChange={(e) => setNewBoardName(e.target.value)}
           autoComplete="off"
           onBlur={() => setShowForm(false)}
+          required
         />
       </form>
     </div>

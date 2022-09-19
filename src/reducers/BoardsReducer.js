@@ -20,7 +20,6 @@ export const BoardsReducer = (state, action) => {
         boards: [...state.boards, action.payload],
         currentBoard: action.payload,
       };
-      localStorage.setItem("boards", JSON.stringify(newState));
       return newState;
     case BOARDS_TYPE.NEW_CURRENT:
       return {
@@ -37,11 +36,19 @@ export const BoardsReducer = (state, action) => {
       );
       return { ...state, boards: [...newState, boardEdited] };
     case BOARDS_TYPE.DELETE_BOARD:
-      console.log("delete");
+      const [deletedBoard] = state.boards.filter(
+        (board) => board.id === action.payload.boardId
+      );
       newState = state.boards.filter(
         (board) => board.id !== action.payload.boardId
       );
-      return { boards: [...newState], currentBoard: {} };
+
+      const indexOfDeletedBoard = state.boards.indexOf(deletedBoard);
+      const newCurrentBoard = newState[indexOfDeletedBoard];
+
+      if (!newState.length) return { boards: [...newState], currentBoard: {} };
+      return { boards: [...newState], currentBoard: newCurrentBoard };
+
     default:
       console.log("DEFALT");
   }

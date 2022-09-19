@@ -4,12 +4,11 @@ import "../../assets/styles/BoardBar.scss";
 import EditIcon from "@mui/icons-material/Edit";
 import { BOARDS_TYPE } from "../../data/constans";
 import { useContext } from "react";
-import { useNavigate } from "react-router-dom";
 import { DataContext } from "../../context/DataContext";
 
 const BoardBarSettings = ({ setShowInput }) => {
-  const navigate = useNavigate();
   const { dispatchBoards, currentBoard } = useContext(DataContext);
+
   return (
     <div className="board-bar__settings">
       <button
@@ -26,7 +25,8 @@ const BoardBarSettings = ({ setShowInput }) => {
             type: BOARDS_TYPE.DELETE_BOARD,
             payload: { boardId: currentBoard.id },
           });
-          navigate("/");
+
+          console.log(currentBoard.id);
         }}
       >
         <DeleteIcon /> Delete board

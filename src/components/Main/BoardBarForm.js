@@ -32,8 +32,10 @@ const BoardBarForm = ({ setShowInput, inputEl }) => {
         className="form__input"
         type="text"
         value={newName}
+        placeholder="New board name..."
         onChange={(e) => setNewName(e.target.value)}
         onBlur={(e) => handleSubmit(e)}
+        required
       />
     </form>
   );

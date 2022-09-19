@@ -1,5 +1,4 @@
-import { createContext, useEffect, useReducer } from "react";
-import { BOARDS_TYPE } from "../data/constans";
+import { createContext, useReducer } from "react";
 import { BoardsReducer, initialBoards } from "../reducers/BoardsReducer";
 import { initialTables, TablesReducer } from "../reducers/TablesReducer";
 

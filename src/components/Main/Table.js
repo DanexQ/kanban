@@ -12,21 +12,6 @@ const Table = ({ table }) => {
       </div>
       <div className="board__tasks">
         <Task />
-        <Task />
-        <Task />
-        <Task />
-        <Task />
-        <Task />
-        <Task />
-        <Task />
-        <Task />
-        <Task />
-        <Task />
-        <Task />
-        <Task />
-        <Task />
-        <Task />
-        <Task />
       </div>
     </div>
   );

@@ -37,6 +37,7 @@ const CreateTableForm = ({ setShowForm }) => {
         onChange={(e) => handleChange(e)}
         autoComplete="off"
         className="form__input form__input--table"
+        required
       />
       <button
         type="button"
