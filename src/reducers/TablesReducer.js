@@ -9,7 +9,6 @@ const getLocal = () => {
 export const initialTables = getLocal() ?? [];
 
 export const TablesReducer = (state, action) => {
-  console.log(initialTables);
   switch (action.type) {
     case TABLES_TYPE.CREATE_TABLE:
       return [
@@ -21,6 +20,16 @@ export const TablesReducer = (state, action) => {
           tasks: [],
         },
       ];
+    case TABLES_TYPE.CHANGE_NAME:
+      // payload: {tableId, newTableName}
+      const [tableToChange] = state.filter(
+        (table) => table.id === action.payload.tableId
+      );
+      const newState = state.filter(
+        (table) => table.id !== action.payload.tableId
+      );
+      tableToChange.name = action.payload.newTableName;
+      return [...newState, tableToChange];
     default:
       throw new Error();
   }

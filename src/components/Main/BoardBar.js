@@ -3,6 +3,7 @@ import { DataContext } from "../../context/DataContext";
 import "../../assets/styles/BoardBar.scss";
 import BoardBarSettings from "./BoardBarSettings";
 import BoardBarForm from "./BoardBarForm";
+import CreateTask from "./CreateTask";
 
 const BoardBar = () => {
   const { currentBoard } = useContext(DataContext);
@@ -19,7 +20,13 @@ const BoardBar = () => {
           <BoardBarForm setShowInput={setShowInput} inputEl={inputEl} />
         )}{" "}
       </h2>
-      <button className="board-bar__button">+ Add New Task</button>
+      <button
+        className="board-bar__button"
+        onClick={() => setShowModal((prevVal) => !prevVal)}
+      >
+        + Add New Task
+      </button>
+      {showModal && <CreateTask setShowModal={setShowModal} />}
       <div
         className="board-bar__menu"
         onClick={() => setShowModal((prevValue) => !prevValue)}
