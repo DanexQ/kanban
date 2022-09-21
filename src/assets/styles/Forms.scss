@@ -57,6 +57,11 @@
     border: none;
     font-family: inherit;
 
+    &--checkbox {
+      height: 4.7rem;
+      padding: 1rem;
+    }
+
     &:focus {
       outline: none;
     }

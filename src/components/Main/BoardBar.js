@@ -7,7 +7,8 @@ import CreateTask from "./CreateTask";
 
 const BoardBar = () => {
   const { currentBoard } = useContext(DataContext);
-  const [showModal, setShowModal] = useState(false);
+  const [showSettings, setShowSettings] = useState(false);
+  const [showTaskCreator, setShowTaskCreator] = useState(false);
   const [showInput, setShowInput] = useState(false);
   const inputEl = useRef(null);
 
@@ -22,17 +23,19 @@ const BoardBar = () => {
       </h2>
       <button
         className="board-bar__button"
-        onClick={() => setShowModal((prevVal) => !prevVal)}
+        onClick={() => setShowTaskCreator((prevVal) => !prevVal)}
       >
         + Add New Task
       </button>
-      {showModal && <CreateTask setShowModal={setShowModal} />}
+      {showTaskCreator && (
+        <CreateTask setShowTaskCreator={setShowTaskCreator} />
+      )}
       <div
         className="board-bar__menu"
-        onClick={() => setShowModal((prevValue) => !prevValue)}
+        onClick={() => setShowSettings((prevValue) => !prevValue)}
       >
         <button></button>
-        {showModal && <BoardBarSettings setShowInput={setShowInput} />}
+        {showSettings && <BoardBarSettings setShowInput={setShowInput} />}
       </div>{" "}
       {/* idk how to name this element button or div*/}
     </div>

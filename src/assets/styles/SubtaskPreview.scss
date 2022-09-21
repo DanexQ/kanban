@@ -1,0 +1,17 @@
+@import "./variables.scss";
+
+.subtask-preview {
+  display: flex;
+  gap: 1rem;
+  border-radius: $border-radius-size;
+  border: 1px solid var(--theme-secondary-color);
+  padding: 0.5rem 1rem;
+
+  &__icon {
+    font-size: 2rem;
+  }
+
+  &__button {
+    cursor: pointer;
+  }
+}
