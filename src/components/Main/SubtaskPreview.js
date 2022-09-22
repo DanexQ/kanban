@@ -5,8 +5,14 @@ import "../../assets/styles/SubtaskPreview.scss";
 const SubtaskPreview = ({ subtask }) => {
   return (
     <div className="subtask-preview">
-      <p>{subtask.subtaskName.slice(0, 3)}...</p>
-      <button className="subtask-preview__button">
+      <abbr title={subtask.subtaskName}>
+        <p>
+          {subtask.subtaskName.length <= 10
+            ? subtask.subtaskName
+            : `${subtask.subtaskName.slice(0, 10)}...`}
+        </p>
+      </abbr>
+      <button type="button" className="subtask-preview__button">
         <ClearIcon className="subtask-preview__icon" />
       </button>
     </div>

@@ -16,7 +16,7 @@
 .create-task {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 5rem;
   background-color: var(--theme-primary-color);
   padding: 10rem;
   font-size: 2rem;
@@ -26,14 +26,40 @@
   transform: translate(-50%, -50%);
   z-index: 1000;
 
+  &__label {
+    opacity: 1;
+    transition: opacity 0.2s;
+
+    &--disabled {
+      opacity: 0.3;
+    }
+  }
+
+  &__button {
+    position: absolute;
+    top: 4rem;
+    right: 5rem;
+    cursor: pointer;
+    z-index: 9999;
+
+    &:active {
+      scale: 0.9;
+    }
+  }
+
+  &__icon {
+    font-size: 4rem !important;
+  }
+
   &__title {
     font-size: 5rem;
   }
 
   &__form {
     display: grid;
-    grid-template-columns: 1fr minmax(1fr, 30rem);
-    gap: 1rem;
+    grid-template-columns: max-content 25rem max-content 25rem;
+    grid-template-rows: repeat(6, minmax(max-content, 1fr));
+    gap: 2rem;
     justify-content: flex-start;
     align-items: center;
   }
@@ -42,5 +68,7 @@
     display: flex;
     gap: 1rem;
     flex-wrap: wrap;
+    grid-row: 4/5;
+    grid-column: 2/5;
   }
 }

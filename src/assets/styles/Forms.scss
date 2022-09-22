@@ -13,6 +13,7 @@
     margin-top: 1rem;
     color: var(--theme-font-color);
     font-weight: 700;
+    background-color: red;
 
     &:active {
       transform: scale(0.9);
@@ -36,6 +37,53 @@
         background-color: rgba(red, 0.7);
       }
     }
+
+    &--subtask {
+      justify-self: center;
+      width: 50%;
+      grid-column: 3/5;
+      padding: 1rem 0;
+      background-color: var(--theme-secondary-color);
+      border-radius: $border-radius-size;
+      transition: opacity 0.2s, scale 0.3s;
+      opacity: 1;
+
+      &:disabled {
+        opacity: 0.2;
+      }
+
+      &:not(:disabled):hover {
+        scale: 1.02;
+      }
+
+      &:not(:disabled):active {
+        scale: 0.99;
+      }
+    }
+
+    &--task {
+      justify-self: center;
+      width: 50%;
+      grid-column: 2/4;
+      grid-row: 6/7;
+      padding: 1rem 0;
+      background-color: var(--theme-secondary-color);
+      border-radius: $border-radius-size;
+      transition: opacity 0.2s, scale 0.3s;
+      opacity: 1;
+
+      &:disabled {
+        opacity: 0.2;
+      }
+
+      &:not(:disabled):hover {
+        scale: 1.02;
+      }
+
+      &:not(:disabled):active {
+        scale: 0.99;
+      }
+    }
   }
 
   &__container {
@@ -56,10 +104,21 @@
     border-radius: $border-radius-size;
     border: none;
     font-family: inherit;
+    opacity: 1;
+    transition: opacity 0.2s;
+
+    &:disabled {
+      opacity: 0.3;
+    }
 
     &--checkbox {
-      height: 4.7rem;
-      padding: 1rem;
+      background-color: var(--theme-primary-color);
+      height: 3rem;
+      transition: opacity 0.2s;
+
+      &:disabled {
+        opacity: 0.3;
+      }
     }
 
     &:focus {

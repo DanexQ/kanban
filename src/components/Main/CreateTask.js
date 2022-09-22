@@ -2,6 +2,8 @@ import React, { useContext } from "react";
 import { DataContext } from "../../context/DataContext";
 import CreateTaskForm from "./CreateTaskForm";
 import "../../assets/styles/CreateTaskForm.scss";
+import ClearIcon from "@mui/icons-material/Clear";
+import "../../assets/styles/SubtaskPreview.scss";
 
 const CreateTask = ({ setShowTaskCreator }) => {
   const { currentBoard, tables } = useContext(DataContext);
@@ -16,22 +18,24 @@ const CreateTask = ({ setShowTaskCreator }) => {
     </option>
   ));
 
-  // ALL TABLES FROM CURRENT BOARD NEEDED
-
   return (
     <>
       <div
         className="modal-background"
-        onClick={(e) => setShowTaskCreator((prevVal) => !prevVal)}
+        onClick={() => setShowTaskCreator((prevVal) => !prevVal)}
       ></div>
       <div className="create-task">
+        <button
+          className="create-task__button"
+          onClick={() => setShowTaskCreator((prevVal) => !prevVal)}
+        >
+          <ClearIcon className="create-task__icon" />
+        </button>
         <h2 className="create-task__title">Task creator</h2>
         <CreateTaskForm options={options} />
       </div>
     </>
   );
 };
-
-// do której tablicy, czy subtaski mają być (jak tak do wyświetlić opcję dodawania ich)
 
 export default CreateTask;
