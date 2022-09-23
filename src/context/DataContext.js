@@ -1,6 +1,7 @@
 import { createContext, useReducer } from "react";
 import { BoardsReducer, initialBoards } from "../reducers/BoardsReducer";
 import { initialTables, TablesReducer } from "../reducers/TablesReducer";
+import { initialTasks, TasksReducer } from "../reducers/TaskReducer";
 
 export const DataContext = createContext();
 
@@ -15,6 +16,8 @@ export const DataProvider = ({ children }) => {
     initialTables
   );
 
+  const [stateTasks, dispatchTasks] = useReducer(TasksReducer, initialTasks);
+
   return (
     <DataContext.Provider
       value={{
@@ -24,6 +27,8 @@ export const DataProvider = ({ children }) => {
         dispatchBoards,
         tables: stateTables,
         dispatchTables,
+        tasks: stateTasks,
+        dispatchTasks,
       }}
     >
       {children}

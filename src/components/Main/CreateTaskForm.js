@@ -1,7 +1,10 @@
 import React, { useState } from "react";
+import { useContext } from "react";
+import { DataContext } from "../../context/DataContext";
 import SubtaskPreview from "./SubtaskPreview";
 
-const CreateTaskForm = ({ options }) => {
+const CreateTaskForm = ({ options, setShowTaskCreator }) => {
+  const { dispatchTasks } = useContext(DataContext);
   const [subtasksData, setSubtasksData] = useState({
     allSubtasks: [],
     newSubtask: { subtaskName: "", subtaskCompleted: false },
@@ -14,8 +17,8 @@ const CreateTaskForm = ({ options }) => {
   });
 
   const subtasksPreview = subtasksData.allSubtasks.length
-    ? subtasksData.allSubtasks.map((subtask) => (
-        <SubtaskPreview subtask={subtask} />
+    ? subtasksData.allSubtasks.map((subtask, i) => (
+        <SubtaskPreview subtask={subtask} key={i} />
       ))
     : "No subtasks yet";
 
@@ -42,7 +45,7 @@ const CreateTaskForm = ({ options }) => {
     }));
   };
 
-  const SubmitSubtask = () => {
+  const submitSubtask = () => {
     if (!subtasksData.newSubtask.subtaskName.length) return;
     setSubtasksData((prevData) => ({
       allSubtasks: [...prevData.allSubtasks, prevData.newSubtask],
@@ -50,10 +53,17 @@ const CreateTaskForm = ({ options }) => {
     }));
   };
 
-  console.log(subtasksData);
+  // todo
+  const submitTask = (e) => {
+    e.preventDefault();
+    const task = { tableId: formData.tableId, taskTitle: formData.taskTitle };
+    if (formData.wantSubtasks) task.subtasks = subtasksData.allSubtasks;
+    dispatchTasks({ type: "ADD_TASK", payload: task });
+    setShowTaskCreator((prevVal) => !prevVal);
+  };
 
   return (
-    <form className="create-task__form">
+    <form className="create-task__form" onSubmit={(e) => submitTask(e)}>
       <label htmlFor="tableId" style={{ gridColumn: "1/2" }}>
         Select table:{" "}
       </label>
@@ -63,7 +73,9 @@ const CreateTaskForm = ({ options }) => {
         onChange={(e) => handleChangeFormData(e)}
         placeholder="Select Table"
         className="form__input"
+        required
       >
+        <option value="">SELECT TABLE</option>
         {options}
       </select>
       <label htmlFor="taskTitle" style={{ gridColumn: "1/2", gridRow: "3/4" }}>
@@ -132,13 +144,17 @@ const CreateTaskForm = ({ options }) => {
       />
       <button
         type="button"
-        onClick={SubmitSubtask}
+        onClick={submitSubtask}
         className="form__button--subtask"
         disabled={!subtaskReady || !formData.wantSubtasks}
       >
         Submit subtask
       </button>
-      <button className="form__button--task" disabled={!formReady}>
+      <button
+        className="form__button--task"
+        disabled={!formReady}
+        onClick={(e) => submitTask(e)}
+      >
         Create new task
       </button>
     </form>

@@ -32,7 +32,10 @@ const CreateTask = ({ setShowTaskCreator }) => {
           <ClearIcon className="create-task__icon" />
         </button>
         <h2 className="create-task__title">Task creator</h2>
-        <CreateTaskForm options={options} />
+        <CreateTaskForm
+          options={options}
+          setShowTaskCreator={setShowTaskCreator}
+        />
       </div>
     </>
   );

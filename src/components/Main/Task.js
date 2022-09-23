@@ -1,10 +1,15 @@
 import React from "react";
 
-const Task = () => {
+const Task = ({ task }) => {
+  const subtasksCount = task.subtasks?.length;
+
   return (
     <div className="board__task" draggable>
-      <h3 className="board__task-title">Build UI</h3>
-      <p className="board__task-subtasks">0 of 3 substasks</p>
+      <h3 className="board__task-title">{task.taskTitle}</h3>
+
+      <p className="board__task-subtasks">
+        {subtasksCount ? `0 of ${subtasksCount} substasks` : "No subtasks"}
+      </p>
     </div>
   );
 };

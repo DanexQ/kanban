@@ -1,4 +1,4 @@
-import React, { useContext, useRef, useState } from "react";
+import React, { useContext, useState } from "react";
 import BoardsList from "./BoardsList";
 import DashboardCustomizeIcon from "@mui/icons-material/DashboardCustomize";
 import { DataContext } from "../../context/DataContext";

@@ -14,7 +14,7 @@ const ThemeSwitch = () => {
   useEffect(() => {
     Object.entries(theme).map(([key, value]) =>
       document.documentElement.style.setProperty(`--theme-${key}`, value)
-    );
+    ); // eslint-disable-next-line
   }, [darkMode]);
 
   return (
